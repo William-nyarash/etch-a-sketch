@@ -4,22 +4,29 @@ const button = document.createElement("div")
 
 button.classList.add("button")
 button.textContent = "click me"
+body.appendChild(button)
 
 button.addEventListener("click", () => {
 	
-let numberOfSquares =	prompt("Enter the number of squares you want generated ")
-})
+	const numberOfSquares =	parseInt(prompt("Enter the number of squares you want generated "))
 
-body.appendChild(button)
-
-let number = 16;
-	for(let i = 0; i < number; i ++){
-		for (let n = 0; n < number; n ++) {
-			const div = document.createElement("div")
-			div.classList.add('div')
-			div.addEventListener("mouseover", ()=> {
-				div.classList.add("hover_div");
-			})
-			container.appendChild(div)
+	if (isNaN(numberOfSquares)) {
+		alert("Warning the input must be a number");
 	}
+	if(numberOfSquares > 100){ 
+			 alert("Only numbers less than 100 are allowed")
+		}
+
+	body.appendChild(button)
+
+	for(let i = 0; i < numberOfSquares; i ++){
+	for (let n = 0; n < numberOfSquares; n ++) {
+		const div = document.createElement("div")
+		div.classList.add('div')
+		div.addEventListener("mouseover", ()=> {
+			div.classList.add("hover_div");
+		})
+		container.appendChild(div)
 }
+}
+})
